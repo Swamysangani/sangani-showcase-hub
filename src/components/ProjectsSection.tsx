@@ -14,7 +14,7 @@ const projects = [
       "Enabled fast and explainable loan eligibility predictions, improving decision transparency.",
     ],
     tech: ["Python", "Scikit-learn", "Streamlit", "PyInstaller"],
-    github: "https://github.com/Swamysangani",
+    github: "https://github.com/Swamysangani/loan-approval-app",
   },
   {
     title: "Emotion Detection Web App (LSTM)",
@@ -26,7 +26,7 @@ const projects = [
       "Achieved strong performance with accurate emotion classification across multiple categories.",
     ],
     tech: ["Python", "TensorFlow", "NLTK", "Streamlit", "Scikit-learn"],
-    github: "https://github.com/Swamysangani",
+    github: "https://github.com/Swamysangani/Emotion-Detection",
   },
   {
     title: "E-Commerce Product Recommendation System",
