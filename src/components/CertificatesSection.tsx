@@ -11,6 +11,7 @@ const certificates = [
     date: "Aug 2025",
     image: certAiml,
     description: "Completed a comprehensive course on applying AI and Machine Learning techniques to solve real-world problems.",
+    link: "https://drive.google.com/file/d/1meuwPZ15_cQUVcJNh9qpCIleigwdqbGB/view?usp=sharing",
   },
   {
     title: "Python Programming – AICTE OIB-SIP",
@@ -18,6 +19,7 @@ const certificates = [
     date: "Jul 2025",
     image: certPython,
     description: "Earned certification for completing a 1-month Python programming internship under the AICTE OIB-SIP initiative.",
+    link: "https://drive.google.com/file/d/1ZMEPmImzJjHdq8-aTN5MJ44of2ztzkta/view?usp=sharing",
   },
   {
     title: "JavaScript Bootcamp",
@@ -25,6 +27,7 @@ const certificates = [
     date: "Mar 2024",
     image: certJs,
     description: "Completed an intensive JavaScript bootcamp covering core concepts, DOM manipulation, and modern ES6+ features.",
+    link: "https://drive.google.com/file/d/1Mu8_uS45hIm4blPCqYyavj5sD4bayRrV/view?usp=sharing",
   },
   {
     title: "HTML Tutorial",
@@ -32,6 +35,7 @@ const certificates = [
     date: "Feb 2024",
     image: certHtml,
     description: "Completed an HTML fundamentals course covering semantic markup, forms, and modern web structure best practices.",
+    link: "https://drive.google.com/file/d/1HcUlovC_VZAZppwZl3XfPYDw-dXW1ULE/view?usp=sharing",
   },
 ];
 
@@ -58,9 +62,14 @@ const CertificatesSection = () => {
                 </div>
                 <p className="text-xs text-primary mb-2">{cert.issuer} • {cert.date}</p>
                 <p className="text-sm text-muted-foreground mb-4">{cert.description}</p>
-                <button className="inline-flex items-center gap-2 text-sm text-primary hover:underline">
+                <a
+                  href={cert.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 text-sm text-primary hover:underline"
+                >
                   <ExternalLink size={14} /> View Certificate
-                </button>
+                </a>
               </div>
             </div>
           ))}
