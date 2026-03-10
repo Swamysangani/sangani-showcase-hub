@@ -62,9 +62,14 @@ const CertificatesSection = () => {
                 </div>
                 <p className="text-xs text-primary mb-2">{cert.issuer} • {cert.date}</p>
                 <p className="text-sm text-muted-foreground mb-4">{cert.description}</p>
-                <button className="inline-flex items-center gap-2 text-sm text-primary hover:underline">
+                <a
+                  href={cert.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 text-sm text-primary hover:underline"
+                >
                   <ExternalLink size={14} /> View Certificate
-                </button>
+                </a>
               </div>
             </div>
           ))}
