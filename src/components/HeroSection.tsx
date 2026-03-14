@@ -1,62 +1,76 @@
 import { Github, Linkedin, Mail, Phone, ArrowDown } from "lucide-react";
+import { motion } from "framer-motion";
+
+const socials = [
+  { icon: <Github size={20} />, href: "https://github.com/Swamysangani" },
+  { icon: <Linkedin size={20} />, href: "https://linkedin.com/in/sanganiswamy1" },
+  { icon: <Mail size={20} />, href: "mailto:swamysangani21@gmail.com" },
+  { icon: <Phone size={20} />, href: "tel:+916302934271" },
+];
 
 const HeroSection = () => {
   return (
     <section className="min-h-screen flex items-center justify-center section-padding relative overflow-hidden">
-      {/* Background glow */}
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[600px] rounded-full bg-primary/5 blur-3xl pointer-events-none" />
 
       <div className="max-w-4xl mx-auto text-center relative z-10">
-        <p className="text-primary font-medium tracking-wider uppercase text-sm mb-4 animate-fade-up">
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="text-primary font-medium tracking-wider uppercase text-sm mb-4"
+        >
           Hello, I'm
-        </p>
-        <h1 className="font-heading text-5xl md:text-7xl font-bold mb-6 animate-fade-up" style={{ animationDelay: "0.1s" }}>
+        </motion.p>
+        <motion.h1
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+          className="font-heading text-5xl md:text-7xl font-bold mb-6"
+        >
           Sangani <span className="text-gradient">Swamy</span>
-        </h1>
-        <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-8 animate-fade-up" style={{ animationDelay: "0.2s" }}>
-          B.Tech CSE (AI & ML) student at Lovely Professional University. Passionate about Machine Learning, 
+        </motion.h1>
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-8"
+        >
+          B.Tech CSE (AI & ML) student at Lovely Professional University. Passionate about Machine Learning,
           Web Development, and building intelligent solutions that make a real-world impact.
-        </p>
+        </motion.p>
 
-        <div className="flex items-center justify-center gap-4 mb-12 animate-fade-up" style={{ animationDelay: "0.3s" }}>
-          <a
-            href="https://github.com/Swamysangani"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="p-3 rounded-lg bg-secondary hover:bg-primary/20 transition-colors"
-          >
-            <Github size={20} />
-          </a>
-          <a
-            href="https://linkedin.com/in/sanganiswamy1"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="p-3 rounded-lg bg-secondary hover:bg-primary/20 transition-colors"
-          >
-            <Linkedin size={20} />
-          </a>
-          <a
-            href="mailto:swamysangani21@gmail.com"
-            className="p-3 rounded-lg bg-secondary hover:bg-primary/20 transition-colors"
-          >
-            <Mail size={20} />
-          </a>
-          <a
-            href="tel:+916302934271"
-            className="p-3 rounded-lg bg-secondary hover:bg-primary/20 transition-colors"
-          >
-            <Phone size={20} />
-          </a>
-        </div>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.3 }}
+          className="flex items-center justify-center gap-4 mb-12"
+        >
+          {socials.map((s, i) => (
+            <motion.a
+              key={i}
+              href={s.href}
+              target={s.href.startsWith("http") ? "_blank" : undefined}
+              rel="noopener noreferrer"
+              className="p-3 rounded-lg bg-secondary hover:bg-primary/20 transition-colors"
+              whileHover={{ scale: 1.15, rotate: 5 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              {s.icon}
+            </motion.a>
+          ))}
+        </motion.div>
 
-        <a
+        <motion.a
           href="#about"
-          className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors animate-fade-up"
-          style={{ animationDelay: "0.4s" }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.5 }}
+          className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors"
         >
           <ArrowDown size={16} className="animate-bounce" />
           Scroll to explore
-        </a>
+        </motion.a>
       </div>
     </section>
   );

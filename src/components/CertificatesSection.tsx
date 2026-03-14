@@ -1,4 +1,6 @@
 import { ExternalLink } from "lucide-react";
+import { motion } from "framer-motion";
+import AnimatedSection from "./AnimatedSection";
 import certAiml from "@/assets/cert-aiml.jpg";
 import certPython from "@/assets/cert-python.jpg";
 import certJs from "@/assets/cert-js.jpg";
@@ -43,35 +45,40 @@ const CertificatesSection = () => {
   return (
     <section id="certificates" className="section-padding">
       <div className="max-w-6xl mx-auto">
-        <h2 className="font-heading text-3xl md:text-4xl font-bold mb-12 text-center">
-          My <span className="text-gradient">Certificates</span>
-        </h2>
+        <AnimatedSection>
+          <h2 className="font-heading text-3xl md:text-4xl font-bold mb-12 text-center">
+            My <span className="text-gradient">Certificates</span>
+          </h2>
+        </AnimatedSection>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {certificates.map((cert) => (
-            <div key={cert.title} className="glass-card overflow-hidden group hover:border-primary/30 transition-colors">
-              <div className="overflow-hidden">
-                <img
-                  src={cert.image}
-                  alt={cert.title}
-                  className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-              </div>
-              <div className="p-6">
-                <div className="flex items-center justify-between mb-2">
-                  <h3 className="font-heading text-lg font-semibold">{cert.title}</h3>
+          {certificates.map((cert, i) => (
+            <AnimatedSection key={cert.title} delay={i * 0.1}>
+              <motion.div
+                className="glass-card overflow-hidden group hover:border-primary/30 transition-colors h-full"
+                whileHover={{ y: -4, boxShadow: "0 0 30px -10px hsl(172 66% 50% / 0.2)" }}
+              >
+                <div className="overflow-hidden">
+                  <img
+                    src={cert.image}
+                    alt={cert.title}
+                    className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
                 </div>
-                <p className="text-xs text-primary mb-2">{cert.issuer} • {cert.date}</p>
-                <p className="text-sm text-muted-foreground mb-4">{cert.description}</p>
-                <a
-                  href={cert.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-sm text-primary hover:underline"
-                >
-                  <ExternalLink size={14} /> View Certificate
-                </a>
-              </div>
-            </div>
+                <div className="p-6">
+                  <h3 className="font-heading text-lg font-semibold mb-2">{cert.title}</h3>
+                  <p className="text-xs text-primary mb-2">{cert.issuer} • {cert.date}</p>
+                  <p className="text-sm text-muted-foreground mb-4">{cert.description}</p>
+                  <a
+                    href={cert.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 text-sm text-primary hover:underline"
+                  >
+                    <ExternalLink size={14} /> View Certificate
+                  </a>
+                </div>
+              </motion.div>
+            </AnimatedSection>
           ))}
         </div>
       </div>

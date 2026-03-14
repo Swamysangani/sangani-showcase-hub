@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Sun, Moon } from "lucide-react";
+import { useTheme } from "./ThemeProvider";
+import { motion, AnimatePresence } from "framer-motion";
 
 const navItems = [
   { label: "About", href: "#about" },
@@ -13,6 +15,7 @@ const navItems = [
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const { theme, toggleTheme } = useTheme();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 50);
@@ -42,6 +45,23 @@ const Navbar = () => {
               {item.label}
             </a>
           ))}
+          <button
+            onClick={toggleTheme}
+            className="p-2 rounded-lg bg-secondary hover:bg-primary/20 transition-colors"
+            aria-label="Toggle theme"
+          >
+            <AnimatePresence mode="wait" initial={false}>
+              <motion.div
+                key={theme}
+                initial={{ rotate: -90, opacity: 0 }}
+                animate={{ rotate: 0, opacity: 1 }}
+                exit={{ rotate: 90, opacity: 0 }}
+                transition={{ duration: 0.2 }}
+              >
+                {theme === "dark" ? <Sun size={18} /> : <Moon size={18} />}
+              </motion.div>
+            </AnimatePresence>
+          </button>
           <a
             href="/resume.pdf"
             download
@@ -52,36 +72,52 @@ const Navbar = () => {
         </div>
 
         {/* Mobile toggle */}
-        <button
-          onClick={() => setMobileOpen(!mobileOpen)}
-          className="md:hidden text-foreground"
-        >
-          {mobileOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
+        <div className="md:hidden flex items-center gap-3">
+          <button
+            onClick={toggleTheme}
+            className="p-2 rounded-lg bg-secondary hover:bg-primary/20 transition-colors"
+            aria-label="Toggle theme"
+          >
+            {theme === "dark" ? <Sun size={18} /> : <Moon size={18} />}
+          </button>
+          <button
+            onClick={() => setMobileOpen(!mobileOpen)}
+            className="text-foreground"
+          >
+            {mobileOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
       </div>
 
       {/* Mobile menu */}
-      {mobileOpen && (
-        <div className="md:hidden glass-card mx-4 mb-4 rounded-xl p-4 flex flex-col gap-3">
-          {navItems.map((item) => (
-            <a
-              key={item.href}
-              href={item.href}
-              onClick={() => setMobileOpen(false)}
-              className="text-sm text-muted-foreground hover:text-primary transition-colors py-2"
-            >
-              {item.label}
-            </a>
-          ))}
-          <a
-            href="/resume.pdf"
-            download
-            className="text-sm px-4 py-2 rounded-lg bg-primary text-primary-foreground font-medium text-center"
+      <AnimatePresence>
+        {mobileOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            className="md:hidden glass-card mx-4 mb-4 rounded-xl p-4 flex flex-col gap-3"
           >
-            Resume
-          </a>
-        </div>
-      )}
+            {navItems.map((item) => (
+              <a
+                key={item.href}
+                href={item.href}
+                onClick={() => setMobileOpen(false)}
+                className="text-sm text-muted-foreground hover:text-primary transition-colors py-2"
+              >
+                {item.label}
+              </a>
+            ))}
+            <a
+              href="/resume.pdf"
+              download
+              className="text-sm px-4 py-2 rounded-lg bg-primary text-primary-foreground font-medium text-center"
+            >
+              Resume
+            </a>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </nav>
   );
 };
