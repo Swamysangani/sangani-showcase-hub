@@ -19,7 +19,7 @@ const FloatingParticles = () => {
     resize();
     window.addEventListener("resize", resize);
 
-    const count = 40;
+    const count = 80;
     for (let i = 0; i < count; i++) {
       particles.push({
         x: Math.random() * canvas.width,
