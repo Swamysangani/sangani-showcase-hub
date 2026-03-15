@@ -1,5 +1,6 @@
 import { Github, Linkedin, Mail, Phone, ArrowDown } from "lucide-react";
 import { motion } from "framer-motion";
+import profileImg from "@/assets/profile.png";
 
 const socials = [
   { icon: <Github size={20} />, href: "https://github.com/Swamysangani" },

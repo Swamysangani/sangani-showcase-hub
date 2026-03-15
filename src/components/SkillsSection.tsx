@@ -4,8 +4,8 @@ import { motion } from "framer-motion";
 
 const skillCategories = [
   { icon: <Code2 size={24} />, title: "Languages", skills: ["C++", "C", "Python", "Java"] },
-  { icon: <Brain size={24} />, title: "Frameworks", skills: ["Scikit-learn", "React", "Streamlit", "TensorFlow"] },
-  { icon: <Wrench size={24} />, title: "Tools & Platforms", skills: ["Figma", "HTML", "CSS", "VS Code", "Google Colab", "Git"] },
+  { icon: <Brain size={24} />, title: "Frameworks", skills: ["Scikit-learn", "React", "Streamlit", "TensorFlow", "Express.js"] },
+  { icon: <Wrench size={24} />, title: "Tools & Platforms", skills: ["Figma", "HTML", "CSS", "VS Code", "Google Colab", "Git", "MongoDB", "Node.js"] },
   { icon: <Users size={24} />, title: "Soft Skills", skills: ["Problem-Solving", "Quick Learner", "Team Leader", "Adaptability"] },
 ];
 
