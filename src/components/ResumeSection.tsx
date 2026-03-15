@@ -176,7 +176,7 @@ const ResumeSection = () => {
           <AnimatedSection>
             <div className="flex justify-center">
               <a
-                href="/resume.pdf"
+                href="/SwamyCV.pdf"
                 download
                 className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-primary text-primary-foreground font-medium hover:opacity-90 transition-opacity"
               >

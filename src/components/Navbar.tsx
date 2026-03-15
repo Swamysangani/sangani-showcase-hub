@@ -26,9 +26,8 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? "glass-card border-b border-border/50 shadow-lg" : "bg-transparent"
-      }`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? "glass-card border-b border-border/50 shadow-lg" : "bg-transparent"
+        }`}
     >
       <div className="max-w-6xl mx-auto flex items-center justify-between px-6 py-4">
         <a href="#" className="font-heading text-xl font-bold text-gradient">
@@ -64,7 +63,7 @@ const Navbar = () => {
             </AnimatePresence>
           </button>
           <a
-            href="/resume.pdf"
+            href="/SwamyCV.pdf"
             download
             className="text-sm px-4 py-2 rounded-lg bg-primary text-primary-foreground font-medium hover:opacity-90 transition-opacity"
           >
