@@ -19,7 +19,7 @@ const FloatingParticles = () => {
     resize();
     window.addEventListener("resize", resize);
 
-    const count = 40;
+    const count = 80;
     for (let i = 0; i < count; i++) {
       particles.push({
         x: Math.random() * canvas.width,
@@ -59,7 +59,7 @@ const FloatingParticles = () => {
   return (
     <canvas
       ref={canvasRef}
-      className="absolute inset-0 w-full h-full pointer-events-none z-0"
+      className="fixed inset-0 w-full h-full pointer-events-none z-0"
     />
   );
 };
