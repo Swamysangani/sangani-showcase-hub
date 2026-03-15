@@ -1,6 +1,7 @@
 import { Github, Linkedin, Mail, Phone, ArrowDown } from "lucide-react";
 import { motion } from "framer-motion";
 import profileImg from "@/assets/profile.png";
+import FloatingParticles from "./FloatingParticles";
 
 const socials = [
   { icon: <Github size={20} />, href: "https://github.com/Swamysangani" },
@@ -12,6 +13,7 @@ const socials = [
 const HeroSection = () => {
   return (
     <section className="min-h-screen flex items-center justify-center section-padding relative overflow-hidden">
+      <FloatingParticles />
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[600px] rounded-full bg-primary/5 blur-3xl pointer-events-none" />
 
       <div className="max-w-4xl mx-auto text-center relative z-10">
