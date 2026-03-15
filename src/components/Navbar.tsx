@@ -9,6 +9,7 @@ const navItems = [
   { label: "Projects", href: "#projects" },
   { label: "Certificates", href: "#certificates" },
   { label: "Education", href: "#education" },
+  { label: "Resume", href: "#resume" },
   { label: "Contact", href: "#contact" },
 ];
 
@@ -63,7 +64,7 @@ const Navbar = () => {
             </AnimatePresence>
           </button>
           <a
-            href="/resume.pdf"
+            href="/resume.docx"
             download
             className="text-sm px-4 py-2 rounded-lg bg-primary text-primary-foreground font-medium hover:opacity-90 transition-opacity"
           >
@@ -109,7 +110,7 @@ const Navbar = () => {
               </a>
             ))}
             <a
-              href="/resume.pdf"
+              href="/resume.docx"
               download
               className="text-sm px-4 py-2 rounded-lg bg-primary text-primary-foreground font-medium text-center"
             >
