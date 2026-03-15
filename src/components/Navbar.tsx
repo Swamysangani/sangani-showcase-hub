@@ -110,7 +110,7 @@ const Navbar = () => {
               </a>
             ))}
             <a
-              href="/resume.docx"
+              href="/resume.pdf"
               download
               className="text-sm px-4 py-2 rounded-lg bg-primary text-primary-foreground font-medium text-center"
             >
