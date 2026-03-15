@@ -63,7 +63,7 @@ const Navbar = () => {
             </AnimatePresence>
           </button>
           <a
-            href="/resume.pdf"
+            href="/resume.docx"
             download
             className="text-sm px-4 py-2 rounded-lg bg-primary text-primary-foreground font-medium hover:opacity-90 transition-opacity"
           >
