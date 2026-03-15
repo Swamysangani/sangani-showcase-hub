@@ -7,10 +7,12 @@ import CertificatesSection from "@/components/CertificatesSection";
 import EducationSection from "@/components/EducationSection";
 import ContactSection from "@/components/ContactSection";
 import ResumeSection from "@/components/ResumeSection";
+import FloatingParticles from "@/components/FloatingParticles";
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-background bg-noise bg-grid bg-radial-glow">
+    <div className="min-h-screen bg-background bg-noise bg-grid bg-radial-glow relative">
+      <FloatingParticles />
       <Navbar />
       <HeroSection />
       <AboutSection />
