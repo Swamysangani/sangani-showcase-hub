@@ -6,7 +6,7 @@ import ProjectsSection from "@/components/ProjectsSection";
 import CertificatesSection from "@/components/CertificatesSection";
 import EducationSection from "@/components/EducationSection";
 import ContactSection from "@/components/ContactSection";
-import ResumeSection from "@/components/ResumeSection";
+
 import FloatingParticles from "@/components/FloatingParticles";
 
 const Index = () => {
