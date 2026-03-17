@@ -50,8 +50,7 @@ const HeroSection = () => {
           transition={{ duration: 0.5, delay: 0.2 }}
           className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-8"
         >
-          B.Tech CSE (AI & ML) student at Lovely Professional University. Passionate about Machine Learning,
-          Web Development, and building intelligent solutions that make a real-world impact.
+          Enthusiastic about machine learning and web development, dedicated to building intelligent, scalable solutions that deliver meaningful real-world impact.
         </motion.p>
 
         <motion.div
