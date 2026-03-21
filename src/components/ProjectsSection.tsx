@@ -1,5 +1,6 @@
 import { Github } from "lucide-react";
 import AnimatedSection from "./AnimatedSection";
+import projectCampuscart from "@/assets/project-campuscart.png";
 import projectLoan from "@/assets/project-loan.jpg";
 import projectEmotion from "@/assets/project-emotion.jpg";
 import projectEcommerce from "@/assets/project-ecommerce.jpg";
@@ -9,7 +10,7 @@ const projects = [
   {
     title: "CampusCart – MERN Stack E-Commerce & Marketplace Web App",
     date: "Feb 2026",
-    image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&q=80",
+    image: projectCampuscart,
     description: [
       "Built a full-stack campus e-commerce and second-hand marketplace platform to enable students to buy, sell, and compare products efficiently.",
       "Developed the frontend using React with Context API for state management and integrated REST APIs for dynamic product, cart, and user operations.",
