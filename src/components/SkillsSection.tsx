@@ -1,5 +1,6 @@
-import { Code2, Brain, Wrench, Users } from "lucide-react";
+import { Code2, Brain, Wrench, Users, Terminal, Database, Server, Figma, Globe, Cpu, Paintbrush, Lightbulb, Zap, Activity, Coffee, FileCode, Workflow, GitMerge } from "lucide-react";
 import AnimatedSection from "./AnimatedSection";
+import { Logos3 } from "./ui/logos3";
 import { motion } from "framer-motion";
 
 const skillCategories = [
@@ -7,6 +8,30 @@ const skillCategories = [
   { icon: <Brain size={24} />, title: "Frameworks", skills: ["Scikit-learn", "React", "Streamlit", "TensorFlow", "Express.js"] },
   { icon: <Wrench size={24} />, title: "Tools & Platforms", skills: ["Figma", "HTML", "CSS", "VS Code", "Google Colab", "Git", "MongoDB", "Node.js"] },
   { icon: <Users size={24} />, title: "Soft Skills", skills: ["Problem-Solving", "Quick Learner", "Team Leader", "Adaptability"] },
+];
+
+const skillLogos = [
+  { id: "s1", name: "C++", icon: Code2 },
+  { id: "s2", name: "C", icon: Terminal },
+  { id: "s3", name: "Python", icon: FileCode },
+  { id: "s4", name: "Java", icon: Coffee },
+  { id: "s5", name: "Scikit-learn", icon: Brain },
+  { id: "s6", name: "React", icon: Globe },
+  { id: "s7", name: "Streamlit", icon: Workflow },
+  { id: "s8", name: "TensorFlow", icon: Brain },
+  { id: "s9", name: "Express.js", icon: Server },
+  { id: "s10", name: "Figma", icon: Figma },
+  { id: "s11", name: "HTML", icon: FileCode },
+  { id: "s12", name: "CSS", icon: Paintbrush },
+  { id: "s13", name: "VS Code", icon: Code2 },
+  { id: "s14", name: "Google Colab", icon: Terminal },
+  { id: "s15", name: "Git", icon: GitMerge },
+  { id: "s16", name: "MongoDB", icon: Database },
+  { id: "s17", name: "Node.js", icon: Cpu },
+  { id: "s18", name: "Problem-Solving", icon: Lightbulb },
+  { id: "s19", name: "Quick Learner", icon: Zap },
+  { id: "s20", name: "Team Leader", icon: Users },
+  { id: "s21", name: "Adaptability", icon: Activity },
 ];
 
 const SkillsSection = () => {
@@ -18,6 +43,12 @@ const SkillsSection = () => {
             My <span className="text-gradient">Skills</span>
           </h2>
         </AnimatedSection>
+        <AnimatedSection delay={0.1}>
+          <div className="mb-16">
+            <Logos3 heading="" logos={skillLogos} />
+          </div>
+        </AnimatedSection>
+
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {skillCategories.map((cat, i) => (
             <AnimatedSection key={cat.title} delay={i * 0.1}>

@@ -1,11 +1,25 @@
 import { Github } from "lucide-react";
-import { motion } from "framer-motion";
 import AnimatedSection from "./AnimatedSection";
 import projectLoan from "@/assets/project-loan.jpg";
 import projectEmotion from "@/assets/project-emotion.jpg";
 import projectEcommerce from "@/assets/project-ecommerce.jpg";
+import { Gallery6 } from "@/components/ui/gallery6";
 
 const projects = [
+  {
+    title: "CampusCart – MERN Stack E-Commerce & Marketplace Web App",
+    date: "Feb 2026",
+    image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&q=80",
+    description: [
+      "Built a full-stack campus e-commerce and second-hand marketplace platform to enable students to buy, sell, and compare products efficiently.",
+      "Developed the frontend using React with Context API for state management and integrated REST APIs for dynamic product, cart, and user operations.",
+      "Implemented backend using Node.js and Express with JWT-based authentication and MongoDB Atlas for cloud data storage.",
+      "Enabled features like product browsing, cart, wishlist, product comparison, and marketplace listings, ensuring a smooth and interactive user experience.",
+    ],
+    tech: ["React.js", "Node.js", "Express.js", "MongoDB Atlas", "Mongoose", "JWT Auth", "Context API", "Vite", "REST APIs", "Render", "Vercel"],
+    github: "https://github.com/Swamysangani/campuscart",
+    live: "https://campuscart-blue.vercel.app/",
+  },
   {
     title: "Loan Approval Prediction Web App",
     date: "Feb 2026",
@@ -44,68 +58,47 @@ const projects = [
   },
 ];
 
+const projectItems = projects.map((p, i) => ({
+  id: `project-${i}`,
+  title: p.title,
+  summary: (
+    <div className="flex flex-col gap-2 h-full">
+      <p className="text-xs text-primary">{p.date}</p>
+      <ul className="space-y-2 mb-2">
+        {p.description.map((desc, idx) => (
+          <li key={idx} className="flex gap-2 text-sm leading-relaxed">
+            <span className="text-primary mt-0.5">•</span>
+            <span>{desc}</span>
+          </li>
+        ))}
+      </ul>
+      <div className="flex flex-wrap gap-2 mt-auto pt-2">
+        {p.tech.map((t) => (
+          <span key={t} className="text-[10px] px-2 py-1 rounded bg-primary/10 text-primary whitespace-nowrap">
+            {t}
+          </span>
+        ))}
+      </div>
+    </div>
+  ),
+  url: p.github,
+  liveUrl: p.live,
+  image: p.image,
+  linkLabel: "View GitHub"
+}));
+
 const ProjectsSection = () => {
   return (
-    <section id="projects" className="section-padding">
-      <div className="max-w-6xl mx-auto">
-        <AnimatedSection>
-          <h2 className="font-heading text-3xl md:text-4xl font-bold mb-12 text-center">
-            My <span className="text-gradient">Projects</span>
-          </h2>
-        </AnimatedSection>
-        <div className="flex flex-col gap-8">
-          {projects.map((project, i) => (
-            <AnimatedSection key={project.title} delay={i * 0.1}>
-              <motion.div
-                className="glass-card overflow-hidden md:flex group hover:border-primary/30 transition-colors"
-                whileHover={{ y: -4 }}
-              >
-                <div className="md:w-2/5 overflow-hidden">
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    className="w-full h-56 md:h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
-                </div>
-                <div className="md:w-3/5 p-6 md:p-8 flex flex-col justify-between">
-                  <div>
-                    <div className="flex items-center justify-between mb-3">
-                      <h3 className="font-heading text-xl font-semibold">{project.title}</h3>
-                      <span className="text-xs text-muted-foreground">{project.date}</span>
-                    </div>
-                    <ul className="space-y-2 mb-4">
-                      {project.description.map((point, idx) => (
-                        <li key={idx} className="text-sm text-muted-foreground flex gap-2">
-                          <span className="text-primary mt-1">•</span>
-                          <span>{point}</span>
-                        </li>
-                      ))}
-                    </ul>
-                    <div className="flex flex-wrap gap-2 mb-4">
-                      {project.tech.map((t) => (
-                        <span key={t} className="text-xs px-2 py-1 rounded bg-primary/10 text-primary">
-                          {t}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                  <div className="flex gap-3">
-                    <a
-                      href={project.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors"
-                    >
-                      <Github size={16} /> GitHub
-                    </a>
-                  </div>
-                </div>
-              </motion.div>
-            </AnimatedSection>
-          ))}
-        </div>
-      </div>
-    </section>
+    <div id="projects">
+      <AnimatedSection>
+        <Gallery6
+          heading="My Projects"
+          demoUrl=""
+          demoLabel=""
+          items={projectItems}
+        />
+      </AnimatedSection>
+    </div>
   );
 };
 

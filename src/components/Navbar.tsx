@@ -1,124 +1,117 @@
-import { useState, useEffect } from "react";
-import { Menu, X, Sun, Moon } from "lucide-react";
+import { useState } from "react";
+import { User, Code, Briefcase, Award, GraduationCap, Mail, Menu, X, Sun, Moon } from "lucide-react";
 import { useTheme } from "./ThemeProvider";
+import { NavBar } from "./ui/tubelight-navbar";
 import { motion, AnimatePresence } from "framer-motion";
 
 const navItems = [
-  { label: "About", href: "#about" },
-  { label: "Skills", href: "#skills" },
-  { label: "Projects", href: "#projects" },
-  { label: "Certificates", href: "#certificates" },
-  { label: "Education", href: "#education" },
-  
-  { label: "Contact", href: "#contact" },
+  { name: "About", url: "#about", icon: User },
+  { name: "Skills", url: "#skills", icon: Code },
+  { name: "Projects", url: "#projects", icon: Briefcase },
+  { name: "Certificates", url: "#certificates", icon: Award },
+  { name: "Education", url: "#education", icon: GraduationCap },
+  { name: "Contact", url: "#contact", icon: Mail },
 ];
 
 const Navbar = () => {
-  const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const { theme, toggleTheme } = useTheme();
 
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 50);
-    window.addEventListener("scroll", onScroll);
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
   return (
-    <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? "glass-card border-b border-border/50 shadow-lg" : "bg-transparent"
-        }`}
-    >
-      <div className="max-w-6xl mx-auto flex items-center justify-between px-6 py-4">
+    <>
+      <NavBar items={navItems} />
+
+      {/* Top Left Logo */}
+      <div className="fixed top-6 left-6 z-50">
         <a href="#" className="font-heading text-xl font-bold text-gradient">
           SS
         </a>
+      </div>
 
-        {/* Desktop */}
-        <div className="hidden md:flex items-center gap-8">
-          {navItems.map((item) => (
-            <a
-              key={item.href}
-              href={item.href}
-              className="text-sm text-muted-foreground hover:text-primary transition-colors"
+      {/* Desktop Top Right Controls */}
+      <div className="fixed top-6 right-6 z-50 hidden md:flex items-center gap-4">
+        <button
+          onClick={toggleTheme}
+          className="p-2 rounded-lg bg-background/5 border border-border backdrop-blur-lg hover:bg-primary/20 transition-colors shadow-lg"
+          aria-label="Toggle theme"
+        >
+          <AnimatePresence mode="wait" initial={false}>
+            <motion.div
+              key={theme}
+              initial={{ rotate: -90, opacity: 0 }}
+              animate={{ rotate: 0, opacity: 1 }}
+              exit={{ rotate: 90, opacity: 0 }}
+              transition={{ duration: 0.2 }}
             >
-              {item.label}
-            </a>
-          ))}
-          <button
-            onClick={toggleTheme}
-            className="p-2 rounded-lg bg-secondary hover:bg-primary/20 transition-colors"
-            aria-label="Toggle theme"
-          >
-            <AnimatePresence mode="wait" initial={false}>
-              <motion.div
-                key={theme}
-                initial={{ rotate: -90, opacity: 0 }}
-                animate={{ rotate: 0, opacity: 1 }}
-                exit={{ rotate: 90, opacity: 0 }}
-                transition={{ duration: 0.2 }}
-              >
-                {theme === "dark" ? <Sun size={18} /> : <Moon size={18} />}
-              </motion.div>
-            </AnimatePresence>
-          </button>
-          <a
-            href="/SwamyCV.pdf"
-            download
-            className="text-sm px-4 py-2 rounded-lg bg-primary text-primary-foreground font-medium hover:opacity-90 transition-opacity"
-          >
-            Resume
-          </a>
-        </div>
+              {theme === "dark" ? <Sun size={18} /> : <Moon size={18} />}
+            </motion.div>
+          </AnimatePresence>
+        </button>
+        <a
+          href="/SwamyCV.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-sm px-4 py-2 rounded-lg bg-background/5 border border-border backdrop-blur-lg text-foreground font-medium hover:bg-primary/20 transition-colors shadow-lg"
+        >
+          Resume
+        </a>
+        <a
+          href="/SwamyCV.pdf"
+          download
+          className="text-sm px-4 py-2 rounded-lg bg-primary text-primary-foreground font-medium hover:opacity-90 transition-opacity shadow-lg"
+        >
+          Download CV
+        </a>
+      </div>
 
-        {/* Mobile toggle */}
-        <div className="md:hidden flex items-center gap-3">
+      {/* Mobile Top Right Controls */}
+      <div className="fixed top-6 right-6 z-50 md:hidden flex flex-col items-end gap-3">
+        <div className="flex items-center gap-3">
           <button
             onClick={toggleTheme}
-            className="p-2 rounded-lg bg-secondary hover:bg-primary/20 transition-colors"
+            className="p-2 rounded-lg bg-background/5 border border-border backdrop-blur-lg hover:bg-primary/20 transition-colors shadow-lg text-foreground"
             aria-label="Toggle theme"
           >
             {theme === "dark" ? <Sun size={18} /> : <Moon size={18} />}
           </button>
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
-            className="text-foreground"
+            className="p-2 rounded-lg bg-background/5 border border-border backdrop-blur-lg text-foreground shadow-lg"
           >
-            {mobileOpen ? <X size={24} /> : <Menu size={24} />}
+            {mobileOpen ? <X size={18} /> : <Menu size={18} />}
           </button>
         </div>
-      </div>
 
-      {/* Mobile menu */}
-      <AnimatePresence>
-        {mobileOpen && (
-          <motion.div
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
-            className="md:hidden glass-card mx-4 mb-4 rounded-xl p-4 flex flex-col gap-3"
-          >
-            {navItems.map((item) => (
-              <a
-                key={item.href}
-                href={item.href}
-                onClick={() => setMobileOpen(false)}
-                className="text-sm text-muted-foreground hover:text-primary transition-colors py-2"
-              >
-                {item.label}
-              </a>
-            ))}
-            <a
-              href="/resume.pdf"
-              download
-              className="text-sm px-4 py-2 rounded-lg bg-primary text-primary-foreground font-medium text-center"
+        <AnimatePresence>
+          {mobileOpen && (
+            <motion.div
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              className="flex flex-col gap-2 glass-card rounded-xl p-3 shadow-xl"
             >
-              Resume
-            </a>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </nav>
+              <a
+                href="/SwamyCV.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setMobileOpen(false)}
+                className="text-sm px-4 py-2 rounded-lg bg-secondary text-foreground font-medium text-center"
+              >
+                Resume
+              </a>
+              <a
+                href="/SwamyCV.pdf"
+                download
+                onClick={() => setMobileOpen(false)}
+                className="text-sm px-4 py-2 rounded-lg bg-primary text-primary-foreground font-medium text-center"
+              >
+                Download CV
+              </a>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
+    </>
   );
 };
 

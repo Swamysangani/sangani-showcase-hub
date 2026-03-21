@@ -24,8 +24,8 @@ const ResumeSection = () => {
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm text-muted-foreground">
                 <p><span className="text-foreground font-medium">Languages:</span> C++, C, Python, Java</p>
-                <p><span className="text-foreground font-medium">Frameworks:</span> Scikit-learn, React, Express.js</p>
-                <p><span className="text-foreground font-medium">Tools/Platforms:</span> Figma, HTML, CSS, MongoDB, Node.js</p>
+                <p><span className="text-foreground font-medium">Frameworks:</span> Scikit-learn, React, Streamlit, TensorFlow, Express.js</p>
+                <p><span className="text-foreground font-medium">Tools/Platforms:</span> Figma, HTML, CSS, VS Code, Google Colab, Git, MongoDB, Node.js</p>
                 <p><span className="text-foreground font-medium">Soft Skills:</span> Problem-Solving, Quick Learner, Team Leader, Adaptability</p>
               </div>
             </div>

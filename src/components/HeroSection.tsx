@@ -1,6 +1,15 @@
+import { useState, useEffect } from "react";
 import { Github, Linkedin, Mail, Phone, ArrowDown } from "lucide-react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import profileImg from "@/assets/profile.png";
+
+const titles = [
+  "AI Solutions",
+  "Machine Learning Models",
+  "MERN Applications",
+  "Scalable Web Apps",
+  "Data-Driven Systems"
+];
 
 
 const socials = [
@@ -11,6 +20,15 @@ const socials = [
 ];
 
 const HeroSection = () => {
+  const [titleIndex, setTitleIndex] = useState(0);
+
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      setTitleIndex((prev) => (prev + 1) % titles.length);
+    }, 3000);
+    return () => clearTimeout(timeout);
+  }, [titleIndex]);
+
   return (
     <section className="min-h-screen flex items-center justify-center section-padding relative overflow-hidden">
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[600px] rounded-full bg-primary/5 blur-3xl pointer-events-none" />
@@ -40,10 +58,33 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.1 }}
-          className="font-heading text-5xl md:text-7xl font-bold mb-6"
+          className="font-heading text-5xl md:text-7xl font-bold mb-4"
         >
           Sangani <span className="text-gradient">Swamy</span>
         </motion.h1>
+        
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.15 }}
+          className="flex justify-center items-center gap-2 text-xl md:text-3xl font-semibold mb-6 overflow-hidden h-[40px]"
+        >
+          <span className="text-green-400 whitespace-nowrap">I build</span>
+          <div className="relative flex items-center justify-start w-[240px] md:w-[350px] h-full text-left">
+            <AnimatePresence mode="wait">
+              <motion.span
+                key={titleIndex}
+                initial={{ y: 20, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                exit={{ y: -20, opacity: 0 }}
+                transition={{ duration: 0.3, ease: "easeOut" }}
+                className="whitespace-nowrap text-foreground"
+              >
+                {titles[titleIndex]}
+              </motion.span>
+            </AnimatePresence>
+          </div>
+        </motion.div>
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
