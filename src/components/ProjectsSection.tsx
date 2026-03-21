@@ -1,5 +1,6 @@
 import { Github } from "lucide-react";
 import AnimatedSection from "./AnimatedSection";
+import projectCampuscart from "@/assets/project-campuscart.png";
 import projectLoan from "@/assets/project-loan.jpg";
 import projectEmotion from "@/assets/project-emotion.jpg";
 import projectEcommerce from "@/assets/project-ecommerce.jpg";
