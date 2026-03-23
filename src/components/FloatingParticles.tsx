@@ -76,7 +76,7 @@ const FloatingParticles = () => {
             ctx.beginPath();
             ctx.moveTo(particles[i].x, particles[i].y);
             ctx.lineTo(particles[j].x, particles[j].y);
-            ctx.strokeStyle = `rgba(46, 191, 165, ${alpha})`;
+            ctx.strokeStyle = `rgba(25, 106, 91, ${alpha})`;
             ctx.lineWidth = 0.5;
             ctx.stroke();
           }
@@ -91,7 +91,7 @@ const FloatingParticles = () => {
           ctx.beginPath();
           ctx.moveTo(particles[i].x, particles[i].y);
           ctx.lineTo(mouse.x, mouse.y);
-          ctx.strokeStyle = `rgba(46, 191, 165, ${alpha})`;
+          ctx.strokeStyle = `rgba(25, 106, 91, ${alpha})`;
           ctx.lineWidth = 0.8;
           ctx.stroke();
         }
@@ -101,7 +101,7 @@ const FloatingParticles = () => {
       for (const p of particles) {
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(46, 191, 165, ${p.opacity})`;
+        ctx.fillStyle = `rgba(25, 106, 91, ${p.opacity})`;
         ctx.fill();
       }
 

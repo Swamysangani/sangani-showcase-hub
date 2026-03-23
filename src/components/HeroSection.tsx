@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Github, Linkedin, Mail, Phone, ArrowDown } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import profileImg from "@/assets/profile.png";
+import profileImg from "@/assets/profile_swamy_latest.jpg";
 
 const titles = [
   "AI Solutions",
@@ -40,10 +40,15 @@ const HeroSection = () => {
           transition={{ duration: 0.6 }}
           className="mb-8 flex justify-center"
         >
-          <img
+          <motion.img
             src={profileImg}
             alt="Sangani Swamy"
-            className="w-36 h-36 md:w-44 md:h-44 rounded-full object-cover border-4 border-primary/30 shadow-[0_0_40px_-10px_hsl(var(--primary)/0.4)] transition-transform duration-300 hover:scale-110"
+            whileHover={{ 
+              scale: 1.25,
+              boxShadow: "0 0 60px -10px hsl(var(--primary)/0.6)"
+            }}
+            transition={{ type: "spring", stiffness: 300, damping: 20 }}
+            className="w-36 h-36 md:w-44 md:h-44 rounded-full object-cover border-4 border-primary/30 shadow-[0_0_40px_-10px_hsl(var(--primary)/0.4)] cursor-pointer z-20"
           />
         </motion.div>
         <motion.p
