@@ -87,7 +87,7 @@ const FloatingParticles = () => {
         const mdy = particles[i].y - mouse.y;
         const mDist = Math.sqrt(mdx * mdx + mdy * mdy);
         if (mDist < CONNECTION_DIST * 1.5) {
-          const alpha = (1 - mDist / (CONNECTION_DIST * 1.5)) * 0.3;
+          const alpha = (1 - mDist / (CONNECTION_DIST * 1.5)) * 0.5;
           ctx.beginPath();
           ctx.moveTo(particles[i].x, particles[i].y);
           ctx.lineTo(mouse.x, mouse.y);

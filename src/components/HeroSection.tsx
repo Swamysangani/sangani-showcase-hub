@@ -43,7 +43,7 @@ const HeroSection = () => {
           <img
             src={profileImg}
             alt="Sangani Swamy"
-            className="w-36 h-36 md:w-44 md:h-44 rounded-full object-cover border-4 border-primary/30 shadow-[0_0_40px_-10px_hsl(var(--primary)/0.4)]"
+            className="w-36 h-36 md:w-44 md:h-44 rounded-full object-cover border-4 border-primary/30 shadow-[0_0_40px_-10px_hsl(var(--primary)/0.4)] transition-transform duration-300 hover:scale-110"
           />
         </motion.div>
         <motion.p
