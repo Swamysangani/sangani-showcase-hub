@@ -43,10 +43,10 @@ const FloatingParticles = () => {
       particles.push({
         x: Math.random() * w(),
         y: Math.random() * h(),
-        size: 1.5 + Math.random() * 2,
+        size: 1.5 + Math.random() * 2.5,
         speedX: (Math.random() - 0.5) * 0.4,
         speedY: (Math.random() - 0.5) * 0.4,
-        opacity: 0.3 + Math.random() * 0.4,
+        opacity: 0.5 + Math.random() * 0.4,
       });
     }
 
@@ -72,7 +72,7 @@ const FloatingParticles = () => {
           const dy = particles[i].y - particles[j].y;
           const dist = Math.sqrt(dx * dx + dy * dy);
           if (dist < CONNECTION_DIST) {
-            const alpha = (1 - dist / CONNECTION_DIST) * 0.15;
+            const alpha = (1 - dist / CONNECTION_DIST) * 0.35;
             ctx.beginPath();
             ctx.moveTo(particles[i].x, particles[i].y);
             ctx.lineTo(particles[j].x, particles[j].y);
@@ -87,7 +87,7 @@ const FloatingParticles = () => {
         const mdy = particles[i].y - mouse.y;
         const mDist = Math.sqrt(mdx * mdx + mdy * mdy);
         if (mDist < CONNECTION_DIST * 1.5) {
-          const alpha = (1 - mDist / (CONNECTION_DIST * 1.5)) * 0.3;
+          const alpha = (1 - mDist / (CONNECTION_DIST * 1.5)) * 0.5;
           ctx.beginPath();
           ctx.moveTo(particles[i].x, particles[i].y);
           ctx.lineTo(mouse.x, mouse.y);
