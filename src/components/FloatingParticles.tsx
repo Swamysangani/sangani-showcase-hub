@@ -43,10 +43,10 @@ const FloatingParticles = () => {
       particles.push({
         x: Math.random() * w(),
         y: Math.random() * h(),
-        size: 1.5 + Math.random() * 2,
+        size: 1.5 + Math.random() * 2.5,
         speedX: (Math.random() - 0.5) * 0.4,
         speedY: (Math.random() - 0.5) * 0.4,
-        opacity: 0.3 + Math.random() * 0.4,
+        opacity: 0.5 + Math.random() * 0.4,
       });
     }
 
